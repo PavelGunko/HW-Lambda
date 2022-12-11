@@ -14,11 +14,14 @@ public class Main {
         Collections.sort(Persons, new PersonComparator());
         for (Person Person : Persons) {
 
-            System.out.println(Person);
-
-
         }
+        Persons.removeIf(person -> person.getAge() <= 18);
 
+
+        System.out.println(Persons);
 
     }
+
+
 }
+
