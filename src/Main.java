@@ -3,7 +3,21 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        List<Person> Persons = new ArrayList<>();
+
+        TreeSet<Person> Persons = new TreeSet<>((o2, o1) -> {
+
+            if (o1.getSurname().split(" ").length == o2.getSurname().split(" ").length) {
+
+                return o1.getAge() - o2.getAge();
+
+            }
+
+            return o1.getSurname().split(" ").length - o2.getSurname().split(" ").length;
+
+        });
+
+
+
         Persons.add(new Person("Gaius", "Iulius Caesar Augustus Germanicus Caligula ", 45));
         Persons.add(new Person("Claudius", "Ptolemy", 30));
         Persons.add(new Person("Julius", "Gaius Caesar ", 50));
@@ -11,14 +25,9 @@ public class Main {
         Persons.add(new Person("Marcus", "Aurelius Antoninus", 17));
 
 
-        Collections.sort(Persons, new PersonComparator());
-        for (Person Person : Persons) {
 
-            System.out.println(Person);
-
-
+            System.out.println(Persons);
         }
 
 
-    }
 }
